@@ -159,7 +159,7 @@ void SetList(PNode **p, PNode **r, PLinkList *head, int num){
 //更新人群属性函数：
 void Update_property(PNode *healthy_p, PLinkList healthy, int healthy_num){
     healthy_p = healthy;
-    for (int i = 0; i < healthy_num; i++){
+    for (int i = 0; i < healthy_num; i++, healthy_p = healthy_p->next){
         if (i < healthy_num * MASK_RATE) {
             ((healthy_p)->people).Mask = 1;
         } else{
@@ -175,8 +175,8 @@ void Infect(PNode **diag_p,      PNode **diag_r,     PLinkList diag,     int *di
             PNode **healthy_p,                       PLinkList *healthy,  int *healthy_num){
     int delt = 0; //记录新增感染量
     *diag_p = diag; *healthy_p = *healthy; //从头开始遍历
-    for(int i = 0; i < *diag_num; i++){
-        for (int j = 0; j < *healthy_num && healthy_p; j++){
+    for(int i = 0; i < *diag_num; i++, *diag_p = (*diag_p)->next){
+        for (int j = 0; j < *healthy_num && *healthy_p; j++){
             double Dis0 =abs((*diag_p)->people.Site[0] - (*healthy_p)->people.Site[0]);
             double Dis1 =abs((*diag_p)->people.Site[1] - (*healthy_p)->people.Site[1]);
             double Dis = sqrt(pow(Dis0, 2) + pow(Dis1, 2)) + SOCIAL_DIS; //人与人之间的距离等于位置差加上社交距离
