@@ -1,5 +1,15 @@
 # covid-19
 
+
+
+Turn around and prepare for the second interview.
+我去准备复试啦~
+
+
+
+
+
+
 C语言主程序：
 
 Step1. 建立健康、确诊、潜伏期三个人群链表，链表中存放具有个人属性的结构体，个人属性包括：是否戴口罩、所在位置等
