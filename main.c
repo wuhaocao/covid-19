@@ -12,24 +12,24 @@
 
 //参数设置：
 
-#define INFECT_RATE 1     //在无任何防护措施下近距离接触后的感染几率
+#define INFECT_RATE 0.5     //在无任何防护措施下近距离接触后的感染几率
 
 //医疗水平
 #define CURE_DAY 30         //治愈周期及潜伏周期
 #define DISCOVER_DAY 14
 
 //防范意识
-#define MASK_RATE 0       //人群中戴口罩的比例以及口罩的效用
+#define MASK_RATE 0.2       //人群中戴口罩的比例以及口罩的效用
 #define MASK_ABILITY 0.9
 
-#define SOCIAL_DIS 0        //距离10米以上则无法通过人传人传播
+#define SOCIAL_DIS 1        //距离10米以上则无法通过人传人传播
 #define DIS_ABILITY 0.1
 
 #define STAY_HOME = 0       //确诊患者居家隔离
 
 //城市属性
 #define THRESHOLD 0.5       //失控阀值
-#define SIZE 20            //城市大小（视为以Size为边长的正方形）
+#define SIZE 200            //城市大小（视为以Size为边长的正方形）
 
 typedef struct{     //人的属性包括：位置、是否戴口罩
     int Site[2];
@@ -57,7 +57,7 @@ int main(int argc, const char * argv[]) {
             *Hide_p     = NULL,     *Hide_r     = NULL;   //各链表的工作指针和尾指针
     
     //初始病情
-    int Healthy_num = 20000, Diag_num = 4000, Hide_num = 100;                    //健康人数、确诊人数、潜伏人数
+    int Healthy_num = 20000, Diag_num = 100, Hide_num = 100;                    //健康人数、确诊人数、潜伏人数
     int Sickbed_num = 100, Bed_full = 0, Bed_empty = Sickbed_num - Bed_full;    //隔离病床数
     
     
